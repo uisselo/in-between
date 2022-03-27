@@ -8,8 +8,8 @@ const Instructions = () => {
         <p>
           The game has five rounds. Three numbers are provided each round but
           one number is hidden. The player has to guess if the hidden number is{" "}
-          <b class="text-white fw-normal">in between</b> the two numbers by
-          choosing <b class="text-white fw-normal">deal</b> or{" "}
+          <b class="text-white fw-normal">in between</b> the two visible numbers
+          by choosing <b class="text-white fw-normal">deal</b> or{" "}
           <b class="text-white fw-normal">no deal</b>.
         </p>
         <p>
