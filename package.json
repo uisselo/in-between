@@ -1,5 +1,6 @@
 {
-  "name": "deal-or-no-deal",
+  "homepage": ".",
+  "name": "in-between",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

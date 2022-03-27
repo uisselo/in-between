@@ -4,7 +4,7 @@ import Layout from "./components/Layout";
 import Instructions from "./components/Instructions";
 import Game from "./components/Game";
 import Finish from "./components/Finish";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
