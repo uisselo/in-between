@@ -47,3 +47,15 @@ code {
   border: 5px solid #e45826;
   margin: 10px 0;
 }
+
+.number-false {
+  width: 130px;
+  height: 130px;
+  background: #e6d5b8;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #000;
+  margin: 10px 0;
+}

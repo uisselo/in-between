@@ -81,22 +81,21 @@ const Game = () => {
   return (
     <Card title={<>Round {round}</>} score={score === 0 ? "0" : score}>
       <div class="d-flex justify-content-between">
-        {[num1, num2].map((e) => {
-          return (
-            <div class="number">
-              <h1>{e}</h1>
-            </div>
-          );
-        })}
+        <div class="number">
+          <h1>{num1}</h1>
+        </div>
         {num3Visible ? (
           <div class="number">
             <h1>{num3}</h1>
           </div>
         ) : (
-          <div class="number">
-            <h1>0</h1>
+          <div class="number-false">
+            <h1>?</h1>
           </div>
         )}
+        <div class="number">
+          <h1>{num2}</h1>
+        </div>
       </div>
 
       {nextRound ? (
