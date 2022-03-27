@@ -23,7 +23,7 @@ const Game = ({ totalScore }) => {
     setNextRound(true);
     if (numbers[0] < num3 && num3 < numbers[1]) {
       toast.success("WIN");
-      setScore(score + 1);
+      setScore(score + 1.0);
     } else {
       toast.error("LOSE");
       setScore(score - 0.5);
@@ -35,7 +35,7 @@ const Game = ({ totalScore }) => {
     setNextRound(true);
     if (num3 <= numbers[0] || numbers[1] <= num3) {
       toast.success("WIN");
-      setScore(score + 1);
+      setScore(score + 1.0);
     } else {
       toast.error("LOSE");
       setScore(score - 0.5);
@@ -47,7 +47,7 @@ const Game = ({ totalScore }) => {
     setNextRound(true);
     if (num3 > num1) {
       toast.success("WIN");
-      setScore(score + 1);
+      setScore(score + 1.0);
     } else {
       toast.error("LOSE");
       setScore(score - 0.5);
@@ -59,7 +59,7 @@ const Game = ({ totalScore }) => {
     setNextRound(true);
     if (num3 < num1) {
       toast.success("WIN");
-      setScore(score + 1);
+      setScore(score + 1.0);
     } else {
       toast.error("LOSE");
       setScore(score - 0.5);
