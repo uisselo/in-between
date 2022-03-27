@@ -108,38 +108,21 @@ const Game = ({ totalScore }) => {
         >
           {round === 5 ? "Finish" : "Next Round"}
         </button>
-      ) : num1 === num2 ? (
-        <div class="d-flex justify-content-between mt-2">
-          <button
-            type="button"
-            class="btn btn-lg rounded-0 text-white text-uppercase w-100 me-2"
-            onClick={() => handleHigher()}
-          >
-            Higher
-          </button>
-          <button
-            type="button"
-            class="btn btn-lg rounded-0 text-white text-uppercase w-100 ms-2"
-            onClick={() => handleLower()}
-          >
-            Lower
-          </button>
-        </div>
       ) : (
         <div class="d-flex justify-content-between mt-2">
           <button
             type="button"
-            class="btn btn-lg rounded-0 text-white text-uppercase w-100 me-2"
-            onClick={() => handleDeal()}
+            class="btn btn-lg rounded-0 text-white text-uppercase w-100 me-1"
+            onClick={num1 === num2 ? () => handleHigher() : () => handleDeal()}
           >
-            Deal
+            {num1 === num2 ? "Higher" : "Deal"}
           </button>
           <button
             type="button"
-            class="btn btn-lg rounded-0 text-white text-uppercase w-100 ms-2"
-            onClick={() => handleNoDeal()}
+            class="btn btn-lg rounded-0 text-white text-uppercase w-100 ms-1"
+            onClick={num1 === num2 ? () => handleLower() : () => handleNoDeal()}
           >
-            No Deal
+            {num1 === num2 ? "Lower" : "No Deal"}
           </button>
         </div>
       )}

@@ -9,7 +9,10 @@ const Finish = () => {
       <p>
         Thank you for playing! Your total score:{" "}
         <b class="text-white fw-normal fs-5">{totalScore}</b>
+        <br />
+        {totalScore === 5 ? <p>Congratulations! You won all rounds!</p> : null}
       </p>
+
       <Link
         to="/"
         type="button"
