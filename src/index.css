@@ -20,7 +20,7 @@ code {
 }
 
 .card {
-  width: 500px;
+  width: 550px;
   background: #f0a500 !important;
   box-shadow: rgba(240, 165, 0, 0.4) -5px 5px, rgba(240, 165, 0, 0.3) -10px 10px,
     rgba(240, 165, 0, 0.2) -15px 15px, rgba(240, 165, 0, 0.1) -20px 20px,
@@ -37,8 +37,8 @@ code {
 }
 
 .number {
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   background: #e6d5b8;
   color: #e45826;
   display: flex;
@@ -49,8 +49,8 @@ code {
 }
 
 .number-false {
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   background: #e6d5b8;
   color: #000;
   display: flex;
@@ -58,4 +58,8 @@ code {
   align-items: center;
   border: 5px solid #000;
   margin: 10px 0;
+}
+
+.creators {
+  font-size: 12px;
 }

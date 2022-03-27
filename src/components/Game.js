@@ -3,7 +3,7 @@ import Card from "./Card";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const Game = () => {
+const Game = ({ totalScore }) => {
   // states
   const [round, setRound] = useState(1);
   const [nextRound, setNextRound] = useState(false);
@@ -26,14 +26,20 @@ const Game = () => {
       setScore(score + 1);
     } else {
       toast.error("LOSE");
-      setScore(score - 1);
+      setScore(score - 0.5);
     }
   };
 
   const handleNoDeal = () => {
     setNum3Visible(true);
     setNextRound(true);
-    setScore(score - .5);
+    if (num3 < numbers[0] || numbers[1] < num3) {
+      toast.success("WIN");
+      setScore(score + 1);
+    } else {
+      toast.error("LOSE");
+      setScore(score - 0.5);
+    }
   };
 
   const handleHigher = () => {
@@ -44,7 +50,7 @@ const Game = () => {
       setScore(score + 1);
     } else {
       toast.error("LOSE");
-      setScore(score - 1);
+      setScore(score - 0.5);
     }
   };
 
@@ -56,7 +62,7 @@ const Game = () => {
       setScore(score + 1);
     } else {
       toast.error("LOSE");
-      setScore(score - 1);
+      setScore(score - 0.5);
     }
   };
 
@@ -68,7 +74,9 @@ const Game = () => {
     setRound(round + 1);
     setNextRound(false);
     if (round === 5) {
-      navigate("/finish");
+      navigate("/finish", {
+        state: { totalScore: score },
+      });
     }
   };
 
