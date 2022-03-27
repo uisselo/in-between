@@ -33,7 +33,7 @@ const Game = ({ totalScore }) => {
   const handleNoDeal = () => {
     setNum3Visible(true);
     setNextRound(true);
-    if (num3 < numbers[0] || numbers[1] < num3) {
+    if (num3 <= numbers[0] || numbers[1] <= num3) {
       toast.success("WIN");
       setScore(score + 1);
     } else {
