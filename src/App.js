@@ -5,7 +5,7 @@ import Instructions from "./components/Instructions";
 import Game from "./components/Game";
 import Finish from "./components/Finish";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
-import { ToastContainer, Zoom } from "react-toastify";
+import { toast, ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -18,7 +18,12 @@ function App() {
           <Route path="/finish" element={<Finish />} />
         </Routes>
       </Layout>
-      <ToastContainer draggable={false} transition={Zoom} autoClose={8000} />
+      <ToastContainer
+        draggable={false}
+        position={toast.POSITION.TOP_CENTER}
+        transition={Zoom}
+        autoClose={6000}
+      />
     </Router>
   );
 }

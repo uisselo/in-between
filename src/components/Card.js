@@ -4,9 +4,7 @@ const Card = ({ title, score, children }) => {
       <div class="card-body">
         <div class="d-flex justify-content-between">
           {title ? <h5 class="card-title text-white">{title}</h5> : null}
-          {score ? (
-            <p class="score text-white align-self-center">Score: {score}</p>
-          ) : null}
+          {score ? <p class="score text-white">Score: {score}</p> : null}
         </div>
         <p class="card-text">{children}</p>
       </div>

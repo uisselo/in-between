@@ -1,7 +1,8 @@
 import { useState } from "react";
-import Card from "./Card";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Card from "./Card";
+import Scoring from "./Scoring";
 
 const Game = ({ totalScore }) => {
   // states
@@ -12,6 +13,7 @@ const Game = ({ totalScore }) => {
   const [num2, setNum2] = useState(Math.floor(Math.random() * 13 + 1));
   const [num3, setNum3] = useState(Math.floor(Math.random() * 13 + 1));
   const [num3Visible, setNum3Visible] = useState(false);
+  const [showScoring, setShowScoring] = useState(false);
 
   // variables
   let numbers = [num1, num2].sort((a, b) => a - b);
@@ -26,20 +28,22 @@ const Game = ({ totalScore }) => {
       setScore(score + 1.0);
     } else {
       toast.error("LOSE");
-      setScore(score - 0.5);
+      setScore(score - 1.0);
     }
   };
 
   const handleNoDeal = () => {
     setNum3Visible(true);
     setNextRound(true);
-    if (num3 <= numbers[0] || numbers[1] <= num3) {
-      toast.success("WIN");
-      setScore(score + 1.0);
-    } else {
-      toast.error("LOSE");
-      setScore(score - 0.5);
-    }
+    setScore(score - 0.5);
+    toast.warn("YOU CHOSE NO DEAL.");
+    // if (num3 <= numbers[0] || numbers[1] <= num3) {
+    //   toast.success("WIN");
+    //   setScore(score - 0.5);
+    // } else {
+    //   toast.error("LOSE");
+    //   setScore(score - 0.5);
+    // }
   };
 
   const handleHigher = () => {
@@ -50,7 +54,7 @@ const Game = ({ totalScore }) => {
       setScore(score + 1.0);
     } else {
       toast.error("LOSE");
-      setScore(score - 0.5);
+      setScore(score - 1.0);
     }
   };
 
@@ -62,7 +66,7 @@ const Game = ({ totalScore }) => {
       setScore(score + 1.0);
     } else {
       toast.error("LOSE");
-      setScore(score - 0.5);
+      setScore(score - 1.0);
     }
   };
 
@@ -81,52 +85,69 @@ const Game = ({ totalScore }) => {
   };
 
   return (
-    <Card title={<>Round {round}</>} score={score === 0 ? "0" : score}>
-      <div class="d-flex justify-content-between">
-        <div class="number">
-          <h1>{num1}</h1>
-        </div>
-        {num3Visible ? (
+    <>
+      {showScoring ? <Scoring /> : null}
+      <Card title={<>Round {round}</>} score={score === 0 ? "0" : score}>
+        <div class="d-flex justify-content-between">
           <div class="number">
-            <h1>{num3}</h1>
+            <h1>{num1}</h1>
           </div>
+          {num3Visible ? (
+            <div class="number">
+              <h1>{num3}</h1>
+            </div>
+          ) : (
+            <div class="number-false">
+              <h1>?</h1>
+            </div>
+          )}
+          <div class="number">
+            <h1>{num2}</h1>
+          </div>
+        </div>
+        {nextRound ? (
+          <button
+            type="button"
+            class="btn btn-lg rounded-0 text-white text-uppercase w-100 mt-2"
+            onClick={() => handleNextRound()}
+          >
+            {round === 5 ? "Finish" : "Next Round"}
+          </button>
         ) : (
-          <div class="number-false">
-            <h1>?</h1>
+          <div class="d-flex justify-content-between mt-2">
+            <button
+              type="button"
+              class="btn btn-lg rounded-0 text-white text-uppercase w-100 me-1"
+              onClick={
+                num1 === num2 ? () => handleHigher() : () => handleDeal()
+              }
+            >
+              {num1 === num2 ? "Higher" : "Deal"}
+            </button>
+            <button
+              type="button"
+              class="btn btn-lg rounded-0 text-white text-uppercase w-100 ms-1"
+              onClick={
+                num1 === num2 ? () => handleLower() : () => handleNoDeal()
+              }
+            >
+              {num1 === num2 ? "Lower" : "No Deal"}
+            </button>
           </div>
         )}
-        <div class="number">
-          <h1>{num2}</h1>
-        </div>
-      </div>
-
-      {nextRound ? (
-        <button
-          type="button"
-          class="btn btn-lg rounded-0 text-white text-uppercase w-100 mt-2"
-          onClick={() => handleNextRound()}
-        >
-          {round === 5 ? "Finish" : "Next Round"}
-        </button>
-      ) : (
-        <div class="d-flex justify-content-between mt-2">
-          <button
+        <p class="mt-3 mb-0 creators text-uppercase">
+          Click{" "}
+          <b
+            class="text-white fw-normal"
             type="button"
-            class="btn btn-lg rounded-0 text-white text-uppercase w-100 me-1"
-            onClick={num1 === num2 ? () => handleHigher() : () => handleDeal()}
+            onClick={() => setShowScoring(!showScoring)}
           >
-            {num1 === num2 ? "Higher" : "Deal"}
-          </button>
-          <button
-            type="button"
-            class="btn btn-lg rounded-0 text-white text-uppercase w-100 ms-1"
-            onClick={num1 === num2 ? () => handleLower() : () => handleNoDeal()}
-          >
-            {num1 === num2 ? "Lower" : "No Deal"}
-          </button>
-        </div>
-      )}
-    </Card>
+            this
+          </b>{" "}
+          to view scoring
+        </p>
+      </Card>
+    </>
   );
 };
 

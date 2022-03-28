@@ -15,6 +15,10 @@ code {
     monospace;
 }
 
+td {
+  font-size: 13px;
+}
+
 .btn {
   background: #e45826 !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -35,6 +39,10 @@ code {
 
 .card-text {
   font-family: "Audiowide";
+}
+
+.creators {
+  font-size: 12px;
 }
 
 .number {
@@ -61,6 +69,15 @@ code {
   margin: 10px 0;
 }
 
-.creators {
-  font-size: 12px;
+.scoring {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 20px;
+  padding: 20px;
+  width: 200px;
+  height: fit-content;
+  background: #f0a500;
+  color: #fff;
+  font-family: "Audiowide";
 }

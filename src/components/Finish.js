@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import Confetti from "react-confetti";
 import Card from "./Card";
 
 const Finish = () => {
@@ -7,23 +6,10 @@ const Finish = () => {
   const { totalScore } = location.state;
   return (
     <>
-      {totalScore === 5 ? <Confetti /> : null}
-      <Card title="Done!">
+      <Card title="Complete!">
         <p>
-          {totalScore === 5 ? (
-            <>
-              <p>
-                Congratulations! You won all rounds with{" "}
-                <b class="text-white fw-normal fs-5">{totalScore}</b> points.
-                Thank you for playing!
-              </p>
-            </>
-          ) : (
-            <>
-              Thank you for playing! Your total score:{" "}
-              <b class="text-white fw-normal fs-5">{totalScore}</b>
-            </>
-          )}
+          Thank you for playing! Your total score:{" "}
+          <b class="text-white fw-normal fs-5">{totalScore}</b>
         </p>
 
         <Link
